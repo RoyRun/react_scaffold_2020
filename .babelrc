@@ -1,0 +1,12 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "useBuiltIns": "usage", //babel polyfill 按需加载
+                "corejs": "3"  
+            }
+        ],
+        "@babel/preset-react"
+    ]
+}
