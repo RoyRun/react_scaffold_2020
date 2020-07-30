@@ -2,11 +2,16 @@
     "presets": [
         [
             "@babel/preset-env",
-            {
+            {   
+                "target": {
+                    "browsers": ["last 2 versions", "safari >=7"] //支持每个浏览器最后两个版本和safari大于等于7版本所需的polyfill代码转换
+                },
+                "modules": false, // 无需babel将es module转换为AMD,commonjs, UMD之类的
                 "useBuiltIns": "usage", //babel polyfill 按需加载
                 "corejs": "3"  
             }
         ],
+        "stage-0", // 特性规范己经被起草，将会被纳入标准里
         "@babel/preset-react"
     ]
 }
