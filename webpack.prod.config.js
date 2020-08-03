@@ -9,15 +9,18 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = merge(common, {
     mode: 'production',
-    devtool: 'hidden-source-map',
+    devtool: 'hidden-module-source-map',
     optimization: {
         minimize: true,
         minimizer: [
             new OptimizeCssAssetsPlugin(),
             new TerserWebpackPlugin({
-                // sourceMap: true
+                sourceMap: true
             }) //override the default minimizer by providing a different one or more customized
-        ]
+        ],
+        splitChunks: {
+            chunks: 'all' //异步同步模块都同时进行打包
+        }
     },
     plugins: [
         new CleanWebpackPlugin(),

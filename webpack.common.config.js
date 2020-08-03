@@ -3,11 +3,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        index: './src/index.js',
+        lib: './src/lib/index.js'
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: ''
+        publicPath: '',
+        chunkFilename: '[name].[chunkhash:5].chunk.js'
     },
     module: {
         rules: [
@@ -27,7 +31,6 @@ module.exports = {
                         }, 
                         'sass-loader'
                     ],
-                    include: path.resolve(__dirname, 'src')
             },{
                 test: /\.less$/i,
                 use: [
@@ -38,22 +41,21 @@ module.exports = {
                                     modules: true
                                 }
                         },
-                        'less-loader'
+                        {
+                            loader: 'less-loader',
+                            options: {
+                                javascriptEnabled: true //version: 5.0.0
+                            }
+                        }
                     ],
-                    include: path.resolve(__dirname, 'src')
             },{
                 test: /\.css$/i,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: isDev,
-                            esModule: true
-                        }
+                        loader: isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
                     },
                     'css-loader'
                 ],
-                include: path.resolve(__dirname,'src')
             },{
                 test: /\.(png|jpg|gif)$/i,
                 use: [
