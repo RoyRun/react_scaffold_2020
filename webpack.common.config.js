@@ -1,8 +1,13 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
+
 const isDev = process.env.NODE_ENV === 'development';
 module.exports = {
+    resolve: {
+        extensions: ['.jsx','.js']
+    },
     entry: {
         index: './src/index.js',
         lib: './src/lib/index.js'
@@ -44,7 +49,7 @@ module.exports = {
                         {
                             loader: 'less-loader',
                             options: {
-                                javascriptEnabled: true //version: 5.0.0
+                                javascriptEnabled: true // version: 5.0.0
                             }
                         }
                     ],
@@ -63,7 +68,7 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 8192 //8k
+                            limit: 8192 // 8k
                         }
                     }
                 ],
@@ -72,6 +77,12 @@ module.exports = {
         ]
     },
     plugins: [
+        new StylelintPlugin({
+            context: 'src',
+            configFile: path.resolve(__dirname,'.stylelintrc.json'),
+            fix: true,
+            files: '**/*.l?(e|c)ss'
+        }),
         new MiniCssExtractPlugin({
             filename: '[name].[chunkhash:8].css'
         }),
@@ -81,4 +92,4 @@ module.exports = {
             minify: false
         })
     ]
-}
+};

@@ -26,6 +26,8 @@ module.exports = {
         "semi": 2,
         "react/state-in-constructor": 0,
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "react/no-unused-state": 1
+        "react/no-unused-state": 1,
+        "import/no-extraneous-dependencies": 0,
+        "import/no-extraneous-dependencies": 0,
     }
 }

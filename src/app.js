@@ -2,15 +2,9 @@ import React, { Suspense } from "react";
 import Page from "./views/Page";
 
 class App extends React.Component {
-  state = {
-    randomCode: 0,
-  };
+  state = {};
 
-  componentDidMount() {
-    console.log(
-      "sdkfjslkfjlksjflkajl;dja;lskjdfl;askjdf;laskdjflksdlkssl;cjlskdjclksjclajscljsldkcjslkcjslkjcklsjckaljdclksjclksdjcksjclksjcksdjcsdklcjdk"
-    );
-  }
+  componentDidMount() {}
 
   clickBtn = () => {};
 

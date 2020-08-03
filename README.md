@@ -7,9 +7,9 @@
 - [x] 最新ECMAScript 语法
 - [x] sass、less
 - [x] tree shaking
-- [] eslint 
+- [x] eslint、stylelint
+- [x] code spliting
 - [] HMR
-- [] code spliting
 ### 支持的第三方包
 - lodash
 - antd
