@@ -1,9 +1,11 @@
+
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
     resolve: {
         extensions: ['.jsx','.js']

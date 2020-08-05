@@ -29,5 +29,10 @@ module.exports = {
         "react/no-unused-state": 1,
         "import/no-extraneous-dependencies": 0,
         "import/no-extraneous-dependencies": 0,
+        "react/destructuring-assignment": 0,
+        "import/extensions": 0,
+        "no-unused-vars": 1,
+        "react/require-default-props": 1,
+        "react/prop-types": 0
     }
 }

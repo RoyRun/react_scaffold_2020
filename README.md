@@ -9,7 +9,9 @@
 - [x] tree shaking
 - [x] eslint、stylelint
 - [x] code spliting
-- [] HMR
+- [x] HMR
 ### 支持的第三方包
 - lodash
 - antd
+### 状态管理
+- [x] Redux
