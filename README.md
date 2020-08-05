@@ -11,7 +11,8 @@
 - [x] code spliting
 - [x] HMR
 ### 支持的第三方包
-- lodash
-- antd
+- [x] lodash
+- [x] antd
+- [x] axios
 ### 状态管理
 - [x] Redux
